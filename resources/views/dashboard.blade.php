@@ -14,6 +14,15 @@
 
     @endif
 
+    @if ($_COOKIE['nivelAcesso'] == 2)
+
+    @endif
+
+    @if ($_COOKIE['nivelAcesso'] == 3)
+        <div id="dashProfessor"></div>
+
+    @endif
+
 	@vite('resources/js/app.js')
 </body>
 </html>

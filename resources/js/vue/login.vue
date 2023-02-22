@@ -6,8 +6,8 @@
             <form @submit="formSubmitLogin">
                 <h1>Atena</h1>
                 <span >Login</span>
-                <input type="text" placeholder="Login" id="user" />
-                <input type="password" placeholder="Senha" id="senha" />
+                <input type="text" placeholder="Login" id="user" class="input" />
+                <input type="password" placeholder="Senha" id="senha" class="input" />
                 <button >Sign In</button>
             </form>
         </div>
@@ -104,7 +104,7 @@ form {
 	text-align: center;
 }
 
-input {
+.input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;

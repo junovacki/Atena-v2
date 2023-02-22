@@ -7,6 +7,43 @@ use Illuminate\Http\Request;
 
 class PerguntaController extends Controller
 {
+    public static function removerPergunta(Request $request){
+        $PerguntaModel = new pergunta();
+
+        $error = $PerguntaModel->deletaPergunta($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function cadastrarPergunta(Request $request){
+        $PerguntaModel = new pergunta();
+
+        $error = $PerguntaModel->cadastraPergunta($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function atualizarPergunta(Request $request){
+        $PerguntaModel = new pergunta();
+
+        $error = $PerguntaModel->atualizaPergunta($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
     /**
      * Display a listing of the resource.
      *

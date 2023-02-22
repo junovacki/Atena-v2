@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\ModalidadeController;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\PerguntaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -167,4 +168,16 @@ Route::controller(AlunoController::class)->group(function () {
 
 Route::controller(AlunoController::class)->group(function () {
     Route::post('/registrarAluno', 'cadastrarAluno');
+});
+
+Route::controller(PerguntaController::class)->group(function () {
+    Route::post('/deletarPergunta', 'removerPergunta');
+});
+
+Route::controller(PerguntaController::class)->group(function () {
+    Route::post('/atualizarPergunta', 'atualizarPergunta');
+});
+
+Route::controller(PerguntaController::class)->group(function () {
+    Route::post('/registrarPergunta', 'cadastrarPergunta');
 });

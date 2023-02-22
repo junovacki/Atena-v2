@@ -107,3 +107,15 @@ Route::get('/cadastroAluno', function () {
 Route::get('/editarAluno/{id}', function ($id) {
     return view('editarAluno', ['id' => $id]);
 });
+
+Route::get('/dashboard-pergunta', function () {
+    return view('dashboardPergunta');
+});
+
+Route::get('/cadastroPergunta', function () {
+    return view('cadastroPergunta');
+});
+
+Route::get('/editarPergunta/{id}', function ($id) {
+    return view('editarPergunta', ['id' => $id]);
+});

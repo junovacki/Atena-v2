@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\DB;
-    if($_COOKIE['nivelAcesso'] == 1){
-        $modalidades = DB::select("SELECT * FROM modalidades");
+    if($_COOKIE['nivelAcesso'] == 3){
+        $perguntas = DB::select("SELECT * FROM perguntas where criado_por = '".$_COOKIE['login']."'");
     }
 ?>
 <!DOCTYPE html>
@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\DB;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modalidades</title>
+    <title>Perguntas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body id="body">
-    @if ($_COOKIE['nivelAcesso'] == 1)
-        <div id="dashADM"></div>
+    @if ($_COOKIE['nivelAcesso'] == 3)
+        <div id="dashProfessor"></div>
         <div id="botaoCadUsuario">
-            <a href="/cadastroModalidade">Cadastro de modalidades</a>
+            <a href="/cadastroPergunta">Cadastro de perguntas</a>
         </div>
         <div class="page-content page-container" id="page-content">
             <div class="padding">
@@ -25,37 +25,26 @@ use Illuminate\Support\Facades\DB;
                     <div class="col-lx-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Molidadades Cadastradas</h4>
-                                <p class="card-description"> Todas as modalidades cadastradas </p>
+                                <h4 class="card-title">Perguntas Cadastradas</h4>
+                                <p class="card-description"> Todas as perguntas cadastradas </p>
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
-                                                <th>Estado</th>
+                                                <th>Texto</th>
                                                 <th>AÇÃO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($modalidades as $modalidade)
+                                            @foreach ($perguntas as $pergunta)
                                             <tr>
-                                                <td><?= $modalidade->modalidade?></td>
+                                                <td><?= $pergunta->texto_pergunta?></td>
+
                                                 <td>
-                                                @if ($modalidade->ativo == '1')
-                                                    <a  onclick="desativarModalidade('<?= $modalidade->id?>')"  >
-                                                        <i class="fa fa-toggle-on" aria-hidden="true" style="font-size: 30px"></i>
-                                                    </a>
-                                                @else
-                                                    <a   onclick="ativarModalidade('<?= $modalidade->id?>')" >
-                                                        <i class="fa fa-toggle-off" aria-hidden="true" class="button" style="font-size: 30px"></i>
-                                                    </a>
-                                                @endif
-                                                </td>
-                                                <td>
-                                                    <a href="editarModalidade/<?= $modalidade->id ?>" id="view" class="button" >
+                                                    <a href="editarPergunta/<?= $pergunta->id ?>" id="view" class="button" >
                                                         <i class="fa fa-eye fa-align-center" aria-hidden="true" style="font-size: 20px"></i>
                                                     </a>
-                                                    <a  class="button" id="view"  onclick="deletarModalidade('<?= $modalidade->id?>')">
+                                                    <a  class="button" id="view"  onclick="deletarPergunta('<?= $pergunta->id?>')">
                                                         <i class="fa fa-solid fa-ban " style="font-size: 20px"></i>
                                                     </a>
                                                 </td>
@@ -80,51 +69,22 @@ use Illuminate\Support\Facades\DB;
 
 	@vite('resources/js/app.js')
     <script>
-        function deletarModalidade(id) {
-        let text = "Deseja realmente deletar a modalidade?";
+        function deletarPergunta(id) {
+        let text = "Deseja realmente deletar a pergunta?";
         if (confirm(text) == true) {
-            axios.post('http://127.0.0.1:8000/api/deletarModalidade', {
+            axios.post('http://127.0.0.1:8000/api/deletarPergunta', {
             id: id
             })
             .then(function (response) {
-                alert('Modalidade deletada com sucesso!!');
-                window.location.href='/dashboard-modalidade';
+                alert('Pergunta deletada com sucesso!!');
+                window.location.href='/dashboard-pergunta';
             })
             .catch(function (error) {
                 console.log('Erro na requisicao');
             });
         }
         }
-        function desativarModalidade(id) {
-        let text = "Deseja realmente desativar a modalidade?";
-        if (confirm(text) == true) {
-            axios.post('http://127.0.0.1:8000/api/desativar-modalidade', {
-            id: id
-            })
-            .then(function (response) {
-                alert('Modalidade desativada com sucesso!!');
-                window.location.href='/dashboard-modalidade';
-            })
-            .catch(function (error) {
-                console.log('Erro na requisicao');
-            });
-        }
-        }
-        function ativarModalidade(id) {
-        let text = "Deseja realmente ativar a modalidade?";
-        if (confirm(text) == true) {
-            axios.post('http://127.0.0.1:8000/api/ativar-modalidade', {
-            id: id
-            })
-            .then(function (response) {
-                alert('Modalidade ativada com sucesso!!');
-                window.location.href='/dashboard-modalidade';
-            })
-            .catch(function (error) {
-                console.log('Erro na requisicao');
-            });
-        }
-        }
+
     </script>
 </body>
 </html>

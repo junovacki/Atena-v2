@@ -30,7 +30,8 @@ apenas .env e removendo assim a parte do .example
 
 Abrir o terminal (cmd, powershell, ...) e abrir a pasta que baixou o arquivo, e rodar os seguintes comandos (cada linha e um):
 
-composer install && npm install <br>
+composer install <br>
+npm install <br>
 php artisan migrate <br>
 npm run build <br>
 php artisan serve <br>
