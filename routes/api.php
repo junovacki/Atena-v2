@@ -11,6 +11,7 @@ use App\Http\Controllers\ModalidadeController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\PerguntaController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\TurmaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -201,4 +202,28 @@ Route::controller(GradeController::class)->group(function () {
 
 Route::controller(GradeController::class)->group(function () {
     Route::post('/registrarGrade', 'cadastrarGrade');
+});
+
+Route::controller(TurmaController::class)->group(function () {
+    Route::post('/deletarTurma', 'removerTurma');
+});
+
+Route::controller(TurmaController::class)->group(function () {
+    Route::post('/desativar-turma', 'desativarTurma');
+});
+
+Route::controller(TurmaController::class)->group(function () {
+    Route::post('/ativar-turma', 'ativarTurma');
+});
+
+Route::controller(TurmaController::class)->group(function () {
+    Route::post('/atualizarTurma', 'atualizarTurma');
+});
+
+Route::controller(TurmaController::class)->group(function () {
+    Route::post('/registrarTurma', 'cadastrarTurma');
+});
+
+Route::controller(TurmaController::class)->group(function () {
+    Route::post('/vincularAlunos', 'vincularAlunos');
 });

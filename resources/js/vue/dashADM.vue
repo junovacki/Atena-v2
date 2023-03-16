@@ -79,6 +79,14 @@
                     </a>
                 </li>
                 <li>
+                   <a href="/dashboard-turma">
+                        <i class="fa fa-map-marker fa-2x"></i>
+                        <span class="nav-text">
+                            Turmas
+                        </span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                        <i class="fa fa-info fa-2x"></i>
                         <span class="nav-text">

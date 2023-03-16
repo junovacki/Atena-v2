@@ -7,6 +7,80 @@ use Illuminate\Http\Request;
 
 class TurmaController extends Controller
 {
+    public static function removerTurma(Request $request){
+        $TurmaModel = new turma();
+
+        $error = $TurmaModel->deletaTurma($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function desativarTurma(Request $request){
+        $TurmaModel = new turma();
+
+        $error = $TurmaModel->desativarTurma($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function ativarTurma(Request $request){
+        $TurmaModel = new turma();
+
+        $error = $TurmaModel->ativarTurma($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function cadastrarTurma(Request $request){
+        $TurmaModel = new turma();
+
+        $error = $TurmaModel->cadastraTurma($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function atualizarTurma(Request $request){
+        $TurmaModel = new turma();
+
+        $error = $TurmaModel->atualizaTurma($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function vincularAlunos(Request $request){
+        $TurmaModel = new turma();
+
+        $error = $TurmaModel->vincularAlunos($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
     /**
      * Display a listing of the resource.
      *

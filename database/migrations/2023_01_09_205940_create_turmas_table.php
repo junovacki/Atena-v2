@@ -30,6 +30,8 @@ return new class extends Migration
 
 
         });
+        DB::table('turmas')->insert(array('idGrade'=>'1','descricao'=>'Analise de Sistemas','serie'=>'5','ano'=>'2','semestre'=>'1','ativo'=>true));
+
     }
 
     /**

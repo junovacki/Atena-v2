@@ -131,3 +131,19 @@ Route::get('/cadastroGrade', function () {
 Route::get('/editarGrade/{id}', function ($id) {
     return view('editarGrade', ['id' => $id]);
 });
+
+Route::get('/dashboard-turma', function () {
+    return view('dashboardTurma');
+});
+
+Route::get('/cadastroTurma', function () {
+    return view('cadastroTurma');
+});
+
+Route::get('/editarTurma/{id}', function ($id) {
+    return view('editarTurma', ['id' => $id]);
+});
+
+Route::get('/vincularAlunoTurma/{id}', function ($id) {
+    return view('vinculaAlunoTurma', ['id' => $id]);
+});
