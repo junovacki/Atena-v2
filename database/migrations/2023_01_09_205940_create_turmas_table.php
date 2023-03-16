@@ -17,9 +17,7 @@ return new class extends Migration
     {
         Schema::create('turmas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('idDisciplina');
             $table->unsignedBigInteger('idGrade');
-            $table->unsignedBigInteger('idUser');
             $table->string('descricao');
             $table->string('serie');
             $table->string('ano');
@@ -27,9 +25,9 @@ return new class extends Migration
             $table->boolean('ativo');
             $table->timestamps();
 
-            $table->foreign('idDisciplina')->references('id')->on('disciplinas');
             $table->foreign('idGrade')->references('id')->on('grades');
-            $table->foreign('idUser')->references('id')->on('users');
+
+
 
         });
     }

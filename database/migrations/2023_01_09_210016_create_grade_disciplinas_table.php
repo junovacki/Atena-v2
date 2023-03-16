@@ -25,6 +25,8 @@ return new class extends Migration
             $table->foreign('idDisciplina')->references('id')->on('disciplinas');
             $table->foreign('idGrade')->references('id')->on('grades');
         });
+        DB::table('grade_disciplinas')->insert(array('idGrade'=>'1','idDisciplina'=>'1','cargaHoraria'=>'66'));
+
     }
 
     /**

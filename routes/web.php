@@ -119,3 +119,15 @@ Route::get('/cadastroPergunta', function () {
 Route::get('/editarPergunta/{id}', function ($id) {
     return view('editarPergunta', ['id' => $id]);
 });
+
+Route::get('/dashboard-grade', function () {
+    return view('dashboardGrade');
+});
+
+Route::get('/cadastroGrade', function () {
+    return view('cadastroGrade');
+});
+
+Route::get('/editarGrade/{id}', function ($id) {
+    return view('editarGrade', ['id' => $id]);
+});

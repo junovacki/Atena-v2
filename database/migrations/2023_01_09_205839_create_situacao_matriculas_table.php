@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('descricao');
             $table->timestamps();
         });
+
+        DB::table('situacao_matriculas')->insert(array('descricao'=>'ativa'));
+        DB::table('situacao_matriculas')->insert(array('descricao'=>'fechada'));
+        DB::table('situacao_matriculas')->insert(array('descricao'=>'inadimplente'));
+
     }
 
     /**

@@ -99,7 +99,7 @@ function enviar() {
     float: inherit;
     position: center;
     width: 512px;
-    height: 1050px;
+    height: 550px;
     margin-left: 0%;
     border-style: solid;
     border-radius: 20% !important;

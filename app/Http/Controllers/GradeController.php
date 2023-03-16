@@ -7,6 +7,68 @@ use Illuminate\Http\Request;
 
 class GradeController extends Controller
 {
+    public static function removerGrade(Request $request){
+        $GradeModel = new grade();
+
+        $error = $GradeModel->deletaGrade($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function desativarGrade(Request $request){
+        $GradeModel = new grade();
+
+        $error = $GradeModel->desativarGrade($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function ativarGrade(Request $request){
+        $GradeModel = new grade();
+
+        $error = $GradeModel->ativarGrade($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function cadastrarGrade(Request $request){
+        $GradeModel = new grade();
+
+        $error = $GradeModel->cadastraGrade($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function atualizarGrade(Request $request){
+        $GradeModel = new grade();
+
+        $error = $GradeModel->atualizaGrade($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
     /**
      * Display a listing of the resource.
      *

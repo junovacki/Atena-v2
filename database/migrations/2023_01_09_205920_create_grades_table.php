@@ -24,6 +24,8 @@ return new class extends Migration
 
             $table->foreign('idCurso')->references('id')->on('cursos');
         });
+        DB::table('grades')->insert(array('idCurso'=>'1','descricao'=>'2023 - Analise de Sistemas','ativo'=>true));
+
     }
 
     /**

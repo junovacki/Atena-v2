@@ -10,6 +10,7 @@ use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\ModalidadeController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\PerguntaController;
+use App\Http\Controllers\GradeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -180,4 +181,24 @@ Route::controller(PerguntaController::class)->group(function () {
 
 Route::controller(PerguntaController::class)->group(function () {
     Route::post('/registrarPergunta', 'cadastrarPergunta');
+});
+
+Route::controller(GradeController::class)->group(function () {
+    Route::post('/deletarGrade', 'removerGrade');
+});
+
+Route::controller(GradeController::class)->group(function () {
+    Route::post('/desativar-grade', 'desativarGrade');
+});
+
+Route::controller(GradeController::class)->group(function () {
+    Route::post('/ativar-grade', 'ativarGrade');
+});
+
+Route::controller(GradeController::class)->group(function () {
+    Route::post('/atualizarGrade', 'atualizarGrade');
+});
+
+Route::controller(GradeController::class)->group(function () {
+    Route::post('/registrarGrade', 'cadastrarGrade');
 });
