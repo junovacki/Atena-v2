@@ -7,6 +7,92 @@ use Illuminate\Http\Request;
 
 class ProvaController extends Controller
 {
+    public static function removerProva(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->deletaProva($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function desativarProva(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->desativarProva($request->all());
+
+
+        if($error != null){
+            return redirect()->back()->with('alert', $error);
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public static function ativarProva(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->ativarProva($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function cadastrarProva(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->cadastraProva($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function atualizarProva(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->atualizaProva($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function atribuirAcertos(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->atribuirAcertos($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+    public static function imprimirProva(Request $request){
+        $ProvaModel = new prova();
+
+        $error = $ProvaModel->imprimirProva($request->all());
+
+
+        if($error != null){
+            return $error;
+        }else{
+            return redirect('/dashboard');
+        }
+    }
     /**
      * Display a listing of the resource.
      *

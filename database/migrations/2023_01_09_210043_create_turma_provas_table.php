@@ -24,6 +24,8 @@ return new class extends Migration
             $table->foreign('idProva')->references('id')->on('provas');
             $table->foreign('idTurma')->references('id')->on('turmas');
         });
+        DB::table('turma_provas')->insert(array('idProva'=>'1','idTurma'=>'1'));
+
     }
 
     /**

@@ -15,6 +15,7 @@
     @endif
 
     @if ($_COOKIE['nivelAcesso'] == 2)
+        <div id="dashCoordenador"></div>
 
     @endif
 

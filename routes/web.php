@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,4 +148,32 @@ Route::get('/editarTurma/{id}', function ($id) {
 
 Route::get('/vincularAlunoTurma/{id}', function ($id) {
     return view('vinculaAlunoTurma', ['id' => $id]);
+});
+
+Route::get('/dashboard-prova', function () {
+    return view('dashboardProva');
+});
+
+Route::get('/cadastroProva', function () {
+    return view('cadastroProvas');
+});
+
+Route::get('/editarProva/{id}', function ($id) {
+    return view('editarProva', ['id' => $id]);
+});
+
+Route::get('/gerenciarAcertos/{id}', function ($id) {
+    return view('gerenciarAcertos', ['id' => $id]);
+});
+Route::get('/imprimirProva/{id}', function ($id) {
+    $perguntas = DB::select("SELECT * FROM prova_perguntas
+        LEFT JOIN perguntas ON prova_perguntas.idPergunta=perguntas.id
+        LEFT JOIN provas ON prova_perguntas.idProva=provas.id
+        LEFT JOIN turma_provas ON turma_provas.idProva=provas.id
+        LEFT JOIN turmas ON turma_provas.idTurma=turmas.id
+        where prova_perguntas.idProva = ?", [$id]);
+    $pdf =  Pdf::loadView('moldeProva', ['perguntas'=>$perguntas])
+                //->setPaper('a4', 'landscape')
+                ;
+                return $pdf->stream();
 });

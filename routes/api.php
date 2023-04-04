@@ -12,6 +12,7 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\PerguntaController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\TurmaController;
+use App\Http\Controllers\ProvaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -226,4 +227,32 @@ Route::controller(TurmaController::class)->group(function () {
 
 Route::controller(TurmaController::class)->group(function () {
     Route::post('/vincularAlunos', 'vincularAlunos');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/deletarProva', 'removerProva');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/desativar-prova', 'desativarProva');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/ativar-prova', 'ativarProva');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/atualizarProva', 'atualizarProva');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/registrarProva', 'cadastrarProva');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/atribuirAcertos', 'atribuirAcertos');
+});
+
+Route::controller(ProvaController::class)->group(function () {
+    Route::post('/imprimirProva', 'imprimirProva');
 });

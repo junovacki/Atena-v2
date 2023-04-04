@@ -18,9 +18,12 @@ return new class extends Migration
         Schema::create('provas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('dataProva');
+            $table->string('descricao');
             $table->boolean('ativo');
             $table->timestamps();
         });
+        DB::table('provas')->insert(array('dataProva'=>'06/06/2023','descricao'=>'Eng Software - ADS','ativo'=>true));
+
     }
 
     /**

@@ -79,7 +79,7 @@ if($_COOKIE['nivelAcesso'] == 1){
                         </div>
                         <ul class="list-group">
                             @foreach ($alunos as $aluno)
-                                <li class="list-group-item" value="<?= $aluno->id?>"><?= $aluno->ra?></li>
+                                <li class="list-group-item" value="<?= $aluno->id?>"><?= $aluno->ra?> - <?= $aluno->nome?></li>
 
                             @endforeach
                         </ul>
@@ -113,7 +113,7 @@ if($_COOKIE['nivelAcesso'] == 1){
                         </div>
                         <ul class="list-group">
                             @foreach ($aluno_turma as $aT)
-                                <li class="list-group-item teste" value="<?= $aT->id?>"><?= $aT->ra?></li>
+                                <li class="list-group-item teste" value="<?= $aT->id?>"><?= $aT->ra?> - <?= $aT->nome?></li>
 
                             @endforeach
                         </ul>
