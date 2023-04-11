@@ -177,3 +177,6 @@ Route::get('/imprimirProva/{id}', function ($id) {
                 ;
                 return $pdf->stream();
 });
+Route::get('/visualizarEstatisticaProva/{id}', function ($id) {
+    return view('estatisticaProva', ['id' => $id]);
+});
