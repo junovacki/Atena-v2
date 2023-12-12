@@ -2,7 +2,7 @@
 
 O presente projeto se refere a projeto final para o Curso de Analise e Desenvolvimento de Sistemas.
 
-Link para o documento do projeto final: https://docs.google.com/document/d/1PV5Tqe90fB-h0PQobdzVAeQblOJIrU-Y/edit?usp=sharing&ouid=104974955870868486971&rtpof=true&sd=true
+Link para o documento do projeto final: https://drive.google.com/file/d/1pIxPq7oitPF0D2Jb450i3-zYrS3R3VUZ/view?usp=sharing
 
 ## Como funciona
 
